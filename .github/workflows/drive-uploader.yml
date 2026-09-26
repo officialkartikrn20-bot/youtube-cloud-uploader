@@ -1,14 +1,31 @@
-name: Drive Video Uploader
+name: YouTube Multi Uploader
 
 on:
   workflow_dispatch:
 
 jobs:
-  test:
+  uploader:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test cloud runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
         run: |
-          echo "Cloud workflow started successfully!"
-          echo "5-channel uploader setup is ready."
+          python -m pip install --upgrade pip
+          pip install google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+
+      - name: Test uploader environment
+        run: |
+          echo "================================="
+          echo "YouTube Multi Uploader"
+          echo "GitHub Actions is ready"
+          echo "Python environment is ready"
+          echo "Google API libraries installed"
+          echo "================================="
