@@ -1,1 +1,14 @@
+name: Drive Video Uploader
 
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test cloud runner
+        run: |
+          echo "Cloud workflow started successfully!"
+          echo "5-channel uploader setup is ready."
